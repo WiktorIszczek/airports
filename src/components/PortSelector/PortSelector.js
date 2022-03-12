@@ -1,8 +1,7 @@
-import React, {useRef} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { airports } from "data/airportsList";
 import Container from "components/Container/Container";
-import { BreadthFirstSearch } from "scripts/breadthFirstSearch";
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,29 +23,34 @@ const Select = styled.select`
   }
 `;
 
-const PortSelector = () => {
-  const startPort = useRef()
-  const endPort = useRef()
-  const MakeItem =(x)=> {
+const PortSelector = ({doBFS}) => {
+  const [startPort="ATH",setStartPort] = useState();
+  const [endPort="ATH",setEndPort] = useState();
+  const MakeItem = (x) => {
     return (
       <option key={x} value={x}>
         {x}
       </option>
     );
-  }
-  const doBFS = () => {
-    console.log(BreadthFirstSearch(startPort.current.value,endPort.current.value))
   };
+  useEffect(() => {
+    doBFS(startPort,endPort)
+}, [startPort, endPort])
+
   return (
     <Wrapper>
       <Container>
         <Selector>
-          <Select ref={startPort} onChange={doBFS}>{airports.map(MakeItem)}</Select>
+          <Select onChange={(e)=>setStartPort(e.target.value)}>
+            {airports.map(MakeItem)}
+          </Select>
         </Selector>
       </Container>
       <Container>
         <Selector>
-          <Select  ref={endPort} onChange={doBFS}>{airports.map(MakeItem)}</Select>
+        <Select onChange={(e)=>setEndPort(e.target.value)}>
+            {airports.map(MakeItem)}
+          </Select>
         </Selector>
       </Container>
     </Wrapper>
