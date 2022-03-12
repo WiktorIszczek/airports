@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   margin: 20px;
 `;
 const Selector = styled.div`
-  min-width: 200px;
+  min-width: 100px;
   margin: 10px;
 `;
 const Select = styled.select`

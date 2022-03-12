@@ -7,24 +7,58 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 20px;
-  & > div{
-    padding:20px;
-}
+  & > div {
+    padding: 20px;
+  }
 `;
+
+const List = styled.ol`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  padding: 10px;
+  margin:10px;
+  min-width: 200px;
+`;
+
+
+const ListImer = styled.li`
+  &:first-child,
+  :last-child {
+    color: rgba(72, 162, 245);
+    font-size: 30px;
+  }
+  &:last-child {
+    color: rgba(197, 93, 234);
+  }
+`;
+
 const MakeItem = (x) => {
   return (
-    <li key={x} value={x}>
-      {x}
-    </li>
+    <ListImer key={x} value={x}>
+      {x} 
+    </ListImer>
   );
 };
-const PathList = ({pathPort}) => (
+
+const PathList = ({ pathPort }) => {
+
+return(
   <Wrapper>
     <Container>
-      <ol>
-    {pathPort.map(MakeItem)}
-      </ol>
-      </Container>
+      <div>
+      Number of airports visited: {pathPort.length}
+      </div>
+      <div>
+      Number of tickets needed: {pathPort.length-1 > 0 ? pathPort.length-1 : 0}
+      </div>
+      <div>
+      Interchanges: {pathPort.length-2 > 0 ? pathPort.length-2 : 0}
+      </div>
+      <List>{pathPort.map(MakeItem)}</List>
+    </Container>
   </Wrapper>
 );
+} 
 export default PathList;
