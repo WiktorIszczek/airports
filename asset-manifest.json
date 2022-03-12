@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/airports/static/css/main.c16bc552.css",
-    "main.js": "/airports/static/js/main.c4aa2794.js",
+    "main.css": "/airports/static/css/main.4085b5c4.css",
+    "main.js": "/airports/static/js/main.c732549f.js",
     "index.html": "/airports/index.html",
-    "main.c16bc552.css.map": "/airports/static/css/main.c16bc552.css.map",
-    "main.c4aa2794.js.map": "/airports/static/js/main.c4aa2794.js.map"
+    "main.4085b5c4.css.map": "/airports/static/css/main.4085b5c4.css.map",
+    "main.c732549f.js.map": "/airports/static/js/main.c732549f.js.map"
   },
   "entrypoints": [
-    "static/css/main.c16bc552.css",
-    "static/js/main.c4aa2794.js"
+    "static/css/main.4085b5c4.css",
+    "static/js/main.c732549f.js"
   ]
 }
